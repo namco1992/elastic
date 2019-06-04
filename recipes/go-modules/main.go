@@ -17,7 +17,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/olivere/elastic" // <- should end with /v6, but missing due to compatibility reasons
+	"github.com/namco1992/elastic" // <- should end with /v6, but missing due to compatibility reasons
 )
 
 func main() {

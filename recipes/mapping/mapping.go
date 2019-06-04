@@ -19,7 +19,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/olivere/elastic"
+	"github.com/namco1992/elastic"
 )
 
 const (

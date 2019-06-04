@@ -6,17 +6,17 @@ Elastic is an [Elasticsearch](http://www.elasticsearch.org/) client for the
 [Go](http://www.golang.org/) programming language.
 
 [![Build Status](https://travis-ci.org/olivere/elastic.svg?branch=release-branch.v6)](https://travis-ci.org/olivere/elastic)
-[![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](http://godoc.org/github.com/olivere/elastic)
+[![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](http://godoc.org/github.com/namco1992/elastic)
 [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/olivere/elastic/master/LICENSE)
 
-See the [wiki](https://github.com/olivere/elastic/wiki) for additional information about Elastic.
+See the [wiki](https://github.com/namco1992/elastic/wiki) for additional information about Elastic.
 
 <a href="https://www.buymeacoffee.com/Bjd96U8fm" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 
 ## Releases
 
-**The release branches (e.g. [`release-branch.v6`](https://github.com/olivere/elastic/tree/release-branch.v6))
+**The release branches (e.g. [`release-branch.v6`](https://github.com/namco1992/elastic/tree/release-branch.v6))
 are actively being worked on and can break at any time.
 If you want to use stable versions of Elastic, please use a dependency manager like [dep](https://github.com/golang/dep).**
 
@@ -24,11 +24,11 @@ Here's the version matrix:
 
 Elasticsearch version | Elastic version  | Package URL | Remarks |
 ----------------------|------------------|-------------|---------|
-6.x                   | 6.0              | [`github.com/olivere/elastic`](https://github.com/olivere/elastic) ([source](https://github.com/olivere/elastic/tree/release-branch.v6) [doc](http://godoc.org/github.com/olivere/elastic)) | Use a dependency manager (see below).
-5.x                   | 5.0              | [`gopkg.in/olivere/elastic.v5`](https://gopkg.in/olivere/elastic.v5) ([source](https://github.com/olivere/elastic/tree/release-branch.v5) [doc](http://godoc.org/gopkg.in/olivere/elastic.v5)) | Actively maintained.
-2.x                   | 3.0              | [`gopkg.in/olivere/elastic.v3`](https://gopkg.in/olivere/elastic.v3) ([source](https://github.com/olivere/elastic/tree/release-branch.v3) [doc](http://godoc.org/gopkg.in/olivere/elastic.v3)) | Deprecated. Please update.
-1.x                   | 2.0              | [`gopkg.in/olivere/elastic.v2`](https://gopkg.in/olivere/elastic.v2) ([source](https://github.com/olivere/elastic/tree/release-branch.v2) [doc](http://godoc.org/gopkg.in/olivere/elastic.v2)) | Deprecated. Please update.
-0.9-1.3               | 1.0              | [`gopkg.in/olivere/elastic.v1`](https://gopkg.in/olivere/elastic.v1) ([source](https://github.com/olivere/elastic/tree/release-branch.v1) [doc](http://godoc.org/gopkg.in/olivere/elastic.v1)) | Deprecated. Please update.
+6.x                   | 6.0              | [`github.com/namco1992/elastic`](https://github.com/namco1992/elastic) ([source](https://github.com/namco1992/elastic/tree/release-branch.v6) [doc](http://godoc.org/github.com/namco1992/elastic)) | Use a dependency manager (see below).
+5.x                   | 5.0              | [`gopkg.in/olivere/elastic.v5`](https://gopkg.in/olivere/elastic.v5) ([source](https://github.com/namco1992/elastic/tree/release-branch.v5) [doc](http://godoc.org/gopkg.in/olivere/elastic.v5)) | Actively maintained.
+2.x                   | 3.0              | [`gopkg.in/olivere/elastic.v3`](https://gopkg.in/olivere/elastic.v3) ([source](https://github.com/namco1992/elastic/tree/release-branch.v3) [doc](http://godoc.org/gopkg.in/olivere/elastic.v3)) | Deprecated. Please update.
+1.x                   | 2.0              | [`gopkg.in/olivere/elastic.v2`](https://gopkg.in/olivere/elastic.v2) ([source](https://github.com/namco1992/elastic/tree/release-branch.v2) [doc](http://godoc.org/gopkg.in/olivere/elastic.v2)) | Deprecated. Please update.
+0.9-1.3               | 1.0              | [`gopkg.in/olivere/elastic.v1`](https://gopkg.in/olivere/elastic.v1) ([source](https://github.com/namco1992/elastic/tree/release-branch.v1) [doc](http://godoc.org/gopkg.in/olivere/elastic.v1)) | Deprecated. Please update.
 
 **Example:**
 
@@ -45,7 +45,7 @@ to manage dependencies. Make sure to use a version such as `^6.0.0`.
 To use Elastic, import:
 
 ```go
-import "github.com/olivere/elastic"
+import "github.com/namco1992/elastic"
 ```
 
 ### Elastic 6.0
@@ -53,7 +53,7 @@ import "github.com/olivere/elastic"
 Elastic 6.0 targets Elasticsearch 6.x which was [released on 14th November 2017](https://www.elastic.co/blog/elasticsearch-6-0-0-released).
 
 Notice that there are a lot of [breaking changes in Elasticsearch 6.0](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/breaking-changes-6.0.html)
-and we used this as an opportunity to [clean up and refactor Elastic](https://github.com/olivere/elastic/blob/release-branch.v6/CHANGELOG-6.0.md)
+and we used this as an opportunity to [clean up and refactor Elastic](https://github.com/namco1992/elastic/blob/release-branch.v6/CHANGELOG-6.0.md)
 as we did in the transition from earlier versions of Elastic.
 
 ### Elastic 5.0
@@ -62,7 +62,7 @@ Elastic 5.0 targets Elasticsearch 5.0.0 and later. Elasticsearch 5.0.0 was
 [released on 26th October 2016](https://www.elastic.co/blog/elasticsearch-5-0-0-released).
 
 Notice that there are will be a lot of [breaking changes in Elasticsearch 5.0](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/breaking-changes-5.0.html)
-and we used this as an opportunity to [clean up and refactor Elastic](https://github.com/olivere/elastic/blob/release-branch.v5/CHANGELOG-5.0.md)
+and we used this as an opportunity to [clean up and refactor Elastic](https://github.com/namco1992/elastic/blob/release-branch.v5/CHANGELOG-5.0.md)
 as we did in the transition from Elastic 2.0 (for Elasticsearch 1.x) to Elastic 3.0 (for Elasticsearch 2.x).
 
 Furthermore, the jump in version numbers will give us a chance to be in sync with the Elastic Stack.
@@ -103,7 +103,7 @@ and adding/removing features so that Elastic is in sync with Elasticsearch.
 Elastic has been used in production starting with Elasticsearch 0.90 up to recent 6.x
 versions. Furthermore, we use [Travis CI](https://travis-ci.org/)
 to test Elastic with the most recent versions of Elasticsearch and Go.
-See the [.travis.yml](https://github.com/olivere/elastic/blob/master/.travis.yml)
+See the [.travis.yml](https://github.com/namco1992/elastic/blob/master/.travis.yml)
 file for the exact matrix and [Travis](https://travis-ci.org/olivere/elastic)
 for the results.
 
@@ -116,7 +116,7 @@ Having said that, I hope you find the project useful.
 
 ## Getting Started
 
-The first thing you do is to create a [Client](https://github.com/olivere/elastic/blob/master/client.go).
+The first thing you do is to create a [Client](https://github.com/namco1992/elastic/blob/master/client.go).
 The client connects to Elasticsearch on `http://127.0.0.1:9200` by default.
 
 You typically create one client for your app. Here's a complete example of
@@ -128,12 +128,12 @@ Here's a [link to a complete working example for v6](https://gist.github.com/oli
 
 Here are a few tips on how to get used to Elastic:
 
-1. Head over to the [Wiki](https://github.com/olivere/elastic/wiki) for detailed information and
+1. Head over to the [Wiki](https://github.com/namco1992/elastic/wiki) for detailed information and
    topics like e.g. [how to add a middleware](/olivere/elastic/wiki/HttpTransport)
    or how to [connect to AWS](/olivere/elastic/wiki/Using-with-AWS-Elasticsearch-Service).
 2. If you are unsure how to implement something, read the tests (all `_test.go` files).
    They not only serve as a guard against changes, but also as a reference.
-3. The [recipes](https://github.com/olivere/elastic/tree/release-branch.v6/recipes)
+3. The [recipes](https://github.com/namco1992/elastic/tree/release-branch.v6/recipes)
    contains small examples on how to implement something, e.g. bulk indexing, scrolling etc.
 
 
@@ -381,12 +381,12 @@ The cat APIs are not implemented as of now. We think they are better suited for 
 Scrolling is supported via a  `ScrollService`. It supports an iterator-like interface.
 The `ClearScroll` API is implemented as well.
 
-A pattern for [efficiently scrolling in parallel](https://github.com/olivere/elastic/wiki/ScrollParallel)
-is described in the [Wiki](https://github.com/olivere/elastic/wiki).
+A pattern for [efficiently scrolling in parallel](https://github.com/namco1992/elastic/wiki/ScrollParallel)
+is described in the [Wiki](https://github.com/namco1992/elastic/wiki).
 
 ## How to contribute
 
-Read [the contribution guidelines](https://github.com/olivere/elastic/blob/master/CONTRIBUTING.md).
+Read [the contribution guidelines](https://github.com/namco1992/elastic/blob/master/CONTRIBUTING.md).
 
 ## Credits
 

@@ -17,8 +17,8 @@ import (
 	"log"
 	"runtime"
 
-	"github.com/olivere/elastic"
-	"github.com/olivere/elastic/config"
+	"github.com/namco1992/elastic"
+	"github.com/namco1992/elastic/config"
 )
 
 func main() {

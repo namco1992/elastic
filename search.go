@@ -12,7 +12,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/olivere/elastic/uritemplates"
+	"github.com/namco1992/elastic/uritemplates"
 )
 
 // Search for documents in Elasticsearch.
@@ -366,6 +366,11 @@ func (s *SearchService) buildURL() (string, url.Values, error) {
 	if len(s.filterPath) > 0 {
 		params.Set("filter_path", strings.Join(s.filterPath, ","))
 	}
+	// rest_total_hits_as_int to make the hits.total as a number.
+	// This parameter has been added to ease the transition to the new format
+	// and will be removed in the next major version (8.0).
+	params.Set("rest_total_hits_as_int", "true")
+
 	return path, params, nil
 }
 

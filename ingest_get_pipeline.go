@@ -10,7 +10,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/olivere/elastic/uritemplates"
+	"github.com/namco1992/elastic/uritemplates"
 )
 
 // IngestGetPipelineService returns pipelines based on ID.

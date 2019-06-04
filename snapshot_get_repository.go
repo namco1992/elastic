@@ -11,7 +11,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/olivere/elastic/uritemplates"
+	"github.com/namco1992/elastic/uritemplates"
 )
 
 // SnapshotGetRepositoryService reads a snapshot repository.
