@@ -126,29 +126,29 @@ const (
 	testOrderIndex   = "elastic-orders"
 	testOrderMapping = `
 {
-	"settings":{
-		"number_of_shards":1,
-		"number_of_replicas":0
-	},
-	"mappings":{
-		"doc":{
-			"properties":{
-				"article":{
-					"type":"text"
-				},
-				"manufacturer":{
-					"type":"keyword"
-				},
-				"price":{
-					"type":"float"
-				},
-				"time":{
-					"type":"date",
-					"format": "YYYY-MM-dd"
-				}
+"settings":{
+	"number_of_shards":1,
+	"number_of_replicas":0
+},
+"mappings":{
+	"doc":{
+		"properties":{
+			"article":{
+				"type":"text"
+			},
+			"manufacturer":{
+				"type":"keyword"
+			},
+			"price":{
+				"type":"float"
+			},
+			"time":{
+				"type":"date",
+				"format": "YYYY-MM-dd"
 			}
 		}
 	}
+}
 }
 `
 
@@ -413,6 +413,19 @@ func setupTestClientAndCreateIndexAndAddDocsNoSource(t logger, options ...Client
 	}
 	// Flush
 	_, err = client.Flush().Index(testNoSourceIndexName).Do(context.TODO())
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	return client
+}
+
+func setupTestClientForXpackSecurity(t logger) (client *Client) {
+	var err error
+	// Set URL and Auth to use the platinum ES cluster
+	options := []ClientOptionFunc{SetURL("http://127.0.0.1:9210"), SetBasicAuth("elastic", "elastic")}
+
+	client, err = NewClient(options...)
 	if err != nil {
 		t.Fatal(err)
 	}

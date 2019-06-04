@@ -5,7 +5,11 @@
 package v4
 
 import (
+	"bytes"
+	"io/ioutil"
 	"net/http"
+	"net/url"
+	"strings"
 	"time"
 
 	"github.com/aws/aws-sdk-go/aws/credentials"
@@ -20,7 +24,7 @@ func NewV4SigningClient(creds *credentials.Credentials, region string) *http.Cli
 // NewV4SigningClientWithHTTPClient returns an *http.Client that will sign all requests with AWS V4 Signing.
 func NewV4SigningClientWithHTTPClient(creds *credentials.Credentials, region string, httpClient *http.Client) *http.Client {
 	return &http.Client{
-		Transport: V4Transport{
+		Transport: Transport{
 			client: httpClient,
 			creds:  creds,
 			signer: v4.NewSigner(creds),
@@ -29,8 +33,8 @@ func NewV4SigningClientWithHTTPClient(creds *credentials.Credentials, region str
 	}
 }
 
-// V4Transport is a RoundTripper that will sign requests with AWS V4 Signing
-type V4Transport struct {
+// Transport is a RoundTripper that will sign requests with AWS V4 Signing
+type Transport struct {
 	client *http.Client
 	creds  *credentials.Credentials
 	signer *v4.Signer
@@ -38,10 +42,46 @@ type V4Transport struct {
 }
 
 // RoundTrip uses the underlying RoundTripper transport, but signs request first with AWS V4 Signing
-func (st V4Transport) RoundTrip(req *http.Request) (*http.Response, error) {
-	_, err := st.signer.Sign(req, nil, "es", st.region, time.Unix(0, 0))
+func (st Transport) RoundTrip(req *http.Request) (*http.Response, error) {
+	if h, ok := req.Header["Authorization"]; ok && len(h) > 0 && strings.HasPrefix(h[0], "AWS4") {
+		// Received a signed request, just pass it on.
+		return st.client.Do(req)
+	}
+
+	req.URL.Scheme = "https"
+	if strings.Contains(req.URL.RawPath, "%2C") {
+		// Escaping path
+		req.URL.RawPath = url.PathEscape(req.URL.RawPath)
+	}
+	now := time.Now().UTC()
+	req.Header.Set("Date", now.Format(time.RFC3339))
+	var err error
+	switch req.Body {
+	case nil:
+		_, err = st.signer.Sign(req, nil, "es", st.region, now)
+	default:
+		buf, err := ioutil.ReadAll(req.Body)
+		if err != nil {
+			return nil, err
+		}
+		req.Body = ioutil.NopCloser(bytes.NewReader(buf))
+		_, err = st.signer.Sign(req, bytes.NewReader(buf), "es", st.region, time.Now().UTC())
+	}
 	if err != nil {
 		return nil, err
 	}
-	return st.client.Do(req)
+	resp, err := st.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	if resp.Body != nil {
+		defer resp.Body.Close()
+		buf := new(bytes.Buffer)
+		_, err = buf.ReadFrom(resp.Body)
+		if err != nil {
+			return nil, err
+		}
+		resp.Body = ioutil.NopCloser(bytes.NewReader(buf.Bytes()))
+	}
+	return resp, nil
 }
