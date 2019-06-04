@@ -8,31 +8,31 @@ cli:
   project: git@github.com:olivere/elastic.git
 analyze:
   modules:
-  - name: github.com/olivere/elastic
+  - name: github.com/namco1992/elastic
     path: .
-    target: github.com/olivere/elastic
+    target: github.com/namco1992/elastic
     type: go
-  - name: github.com/olivere/elastic/config
+  - name: github.com/namco1992/elastic/config
     path: ./config
-    target: github.com/olivere/elastic/config
+    target: github.com/namco1992/elastic/config
     type: go
-  - name: github.com/olivere/elastic/uritemplates
+  - name: github.com/namco1992/elastic/uritemplates
     path: ./uritemplates
-    target: github.com/olivere/elastic/uritemplates
+    target: github.com/namco1992/elastic/uritemplates
     type: go
-  - name: github.com/olivere/elastic/trace/opencensus
+  - name: github.com/namco1992/elastic/trace/opencensus
     path: ./trace/opencensus
-    target: github.com/olivere/elastic/trace/opencensus
+    target: github.com/namco1992/elastic/trace/opencensus
     type: go
-  - name: github.com/olivere/elastic/trace/opentracing
+  - name: github.com/namco1992/elastic/trace/opentracing
     path: ./trace/opentracing
-    target: github.com/olivere/elastic/trace/opentracing
+    target: github.com/namco1992/elastic/trace/opentracing
     type: go
-  - name: github.com/olivere/elastic/aws
+  - name: github.com/namco1992/elastic/aws
     path: ./aws
-    target: github.com/olivere/elastic/aws
+    target: github.com/namco1992/elastic/aws
     type: go
-  - name: github.com/olivere/elastic/aws/v4
+  - name: github.com/namco1992/elastic/aws/v4
     path: ./aws/v4
-    target: github.com/olivere/elastic/aws/v4
+    target: github.com/namco1992/elastic/aws/v4
     type: go

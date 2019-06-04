@@ -54,7 +54,7 @@ import "github.com/namco1992/elastic"
 Elastic 6.0 targets Elasticsearch 6.x which was [released on 14th November 2017](https://www.elastic.co/blog/elasticsearch-6-0-0-released).
 
 Notice that there are a lot of [breaking changes in Elasticsearch 6.0](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/breaking-changes-6.0.html)
-and we used this as an opportunity to [clean up and refactor Elastic](https://github.com/olivere/elastic/blob/release-branch.v6/CHANGELOG-6.0.md)
+and we used this as an opportunity to [clean up and refactor Elastic](https://github.com/namco1992/elastic/blob/release-branch.v6/CHANGELOG-6.0.md)
 
 as we did in the transition from earlier versions of Elastic.
 
@@ -130,9 +130,9 @@ Here's a [link to a complete working example for v6](https://gist.github.com/oli
 
 Here are a few tips on how to get used to Elastic:
 
-1. Head over to the [Wiki](https://github.com/olivere/elastic/wiki) for detailed information and
-   topics like e.g. [how to add a middleware](https://github.com/olivere/elastic/wiki/HttpTransport)
-   or how to [connect to AWS](https://github.com/olivere/elastic/wiki/Using-with-AWS-Elasticsearch-Service).
+1. Head over to the [Wiki](https://github.com/namco1992/elastic/wiki) for detailed information and
+   topics like e.g. [how to add a middleware](https://github.com/namco1992/elastic/wiki/HttpTransport)
+   or how to [connect to AWS](https://github.com/namco1992/elastic/wiki/Using-with-AWS-Elasticsearch-Service).
 2. If you are unsure how to implement something, read the tests (all `_test.go` files).
    They not only serve as a guard against changes, but also as a reference.
 3. The [recipes](https://github.com/namco1992/elastic/tree/release-branch.v6/recipes)
