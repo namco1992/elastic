@@ -498,6 +498,10 @@ func (s *ScrollService) buildNextURL() (string, url.Values, error) {
 		s.filterPath = append(s.filterPath, "_scroll_id")
 		params.Set("filter_path", strings.Join(s.filterPath, ","))
 	}
+	// set rest_total_hits_as_int to true to make the hits.total as a number.
+	// This parameter has been added to ease the transition to the new format
+	// and will be removed in the next major version (8.0).
+	params.Set("rest_total_hits_as_int", "true")
 
 	return path, params, nil
 }
